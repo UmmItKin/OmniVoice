@@ -11,12 +11,17 @@ import torch
 
 
 def main():
+    # 從檔案讀取文字
+    with open("z2e_intro.txt", "r") as f:
+        text = f.read().strip()
+
     print("Loading model...")
     model = OmniVoice.from_pretrained(
         "k2-fsa/OmniVoice", device_map="cpu", dtype=torch.float32
     )
 
     print("Generating speech with Voice Design...")
+    print(f"Text: {text[:50]}...")
     print("This may take several minutes on CPU...")
     print("-" * 50)
 
@@ -24,7 +29,7 @@ def main():
 
     # Voice Design - 用 instruct 描述聲音，唔洗 ref_audio
     audio = model.generate(
-        text="Introducing Z2E-Agent, the next generation Security Pentest Agent. Z2E-Agent automates your security assessment tasks, scanning for vulnerabilities and delivering comprehensive reports in minutes.",
+        text=text,
         instruct="male, american accent, middle-aged",
         num_step=32,  # 可以改為 16/32/64
     )

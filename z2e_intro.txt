@@ -1,0 +1,5 @@
+Introducing Z2E - Zero to Exploit.
+
+A fully autonomous AI security agent for CTF and pentesting.
+One command in, full workflow out: read, run, analyze, solve.
+From discovery to exploitation, all in one terminal.
