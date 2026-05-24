@@ -31,7 +31,8 @@ def main():
     audio = model.generate(
         text=text,
         instruct="male, american accent, middle-aged",
-        num_step=32,  # 可以改為 16/32/64
+        num_step=64,  # 64 步更自然
+        guidance_scale=2.0,
     )
 
     elapsed = time.time() - start_time
